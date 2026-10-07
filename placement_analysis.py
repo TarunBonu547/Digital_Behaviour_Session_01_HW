@@ -1,5 +1,6 @@
 import numpy as np
 import csv
+import matplotlib.pyplot as plt
 
 python = []
 aptitude = []
@@ -113,3 +114,21 @@ print(f"The maximum of three bands : {np.max([(df["Readiness_band"] == "Needs Wo
 print("Creating the new knowledge.......!!!!!")
 
 df.to_csv("placement_results.csv")
+
+#Creating charts
+
+plt.figure(figsize=(12,5))
+
+Average_score = {
+    "Python Score" : python_np.mean(),
+    "SQL Score" : sql_np.mean(),
+    "Communication Score" : communication_np.mean(),
+    "Aptitude Score" : aptitude_np.mean()
+}
+
+plt.bar(Average_score.keys(),Average_score.values())
+plt.xlabel("Subject")
+plt.ylabel("Score")
+plt.title("Average Score of Each app")
+plt.savefig("charts/Average_Score.png",dpi=500)
+plt.show()
