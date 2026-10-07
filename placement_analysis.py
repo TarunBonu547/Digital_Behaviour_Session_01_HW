@@ -126,9 +126,27 @@ Average_score = {
     "Aptitude Score" : aptitude_np.mean()
 }
 
-plt.bar(Average_score.keys(),Average_score.values())
-plt.xlabel("Subject")
-plt.ylabel("Score")
-plt.title("Average Score of Each app")
-plt.savefig("charts/Average_Score.png",dpi=500)
+# plt.bar(Average_score.keys(),Average_score.values())
+# plt.xlabel("Subject")
+# plt.ylabel("Score")
+# plt.title("Average Score of Each app")
+# plt.savefig("charts/Average_Score.png",dpi=500)
+# plt.show()
+# plt.close()
+
+
+plt.figure(figsize=(12,5))
+
+Readiness = {
+    "Needs Work" : (df["Readiness_band"] == "Needs Work").sum(),
+    "Ready" : (df["Readiness_band"] == "Ready").sum(),
+    "Almost Ready" : (df["Readiness_band"] == "Almost Ready").sum()
+}
+
+plt.bar(Readiness.keys(),Readiness.values())
+plt.xlabel("Readiness Type")
+plt.ylabel("No of Students")
+plt.title("Students in each readiness")
+plt.savefig("charts/Students_readiness.png",dpi = 500)
 plt.show()
+plt.close()
